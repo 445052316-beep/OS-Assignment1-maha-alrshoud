@@ -30,7 +30,8 @@ class Process implements Runnable {
     private int timeQuantum; // Time slice (time quantum) allowed per CPU access (in milliseconds)
     private int remainingTime; // Time left for the process to finish its execution
     private int priority;
-
+    public static int contextSwitchCount = 0; 
+    
     // Constructor to initialize the process with name, burst time, and time quantum
     public Process(String name, int burstTime, int timeQuantum) {
         this.name = name;
@@ -44,6 +45,8 @@ class Process implements Runnable {
     @Override
     public void run() {
         // Simulate running for either the time quantum or remaining time, whichever is smaller
+        
+         contextSwitchCount++; 
         int runTime = Math.min(timeQuantum, remainingTime); // Run for the smaller of the two times
         
         // Show quantum execution starting
@@ -174,6 +177,10 @@ public class SchedulerSimulation {
         System.out.println("\n" + Colors.BOLD + Colors.BRIGHT_CYAN + 
                           "╔═══════════════════════════════════════════════════════════════════════════════════════╗" + 
                           Colors.RESET);
+
+        System.out.println(Colors.BOLD + Colors.YELLOW + "Total Context Switches: " + 
+                  Colors.BRIGHT_WHITE + Process.contextSwitchCount + Colors.RESET + "\n");
+        
         System.out.println(Colors.BOLD + Colors.BRIGHT_CYAN + "║" + Colors.RESET + 
                           Colors.BG_BLUE + Colors.BRIGHT_WHITE + Colors.BOLD + 
                           "                          CPU SCHEDULER SIMULATION                                " + 
