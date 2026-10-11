@@ -29,11 +29,11 @@
 
 | Field | Your Answer |
 |-------|-------------|
-| **Full Name** | [Write your full name here] |
-| **Student ID** | [Write your student ID here] |
-| **University Email** | [yourid]@std.psau.edu.sa |
-| **GitHub Username** | [your-github-username] |
-| **Repository Link** | [Paste your repository link here] |
+| **Full Name** | [maha alrshoud] |
+| **Student ID** | [445052316] |
+| **University Email** | [445052316]@std.psau.edu.sa |
+| **GitHub Username** | [445052316-beep] |
+| **Repository Link** | [445052316-beep/OS-Assignment1-maha-alrshoud] |
  
 ---
 
@@ -109,115 +109,40 @@
 
 ## Example Entry (do not copy it, write your own)
 
-### Entry 1 - [September 22, 2026, 2:30 PM]
-**What I did**: Forked the repository and set up my student ID
-
-**Details**:
-- Created GitHub account with university email
-- Forked the starter repository and renamed it
-- Changed student ID on line 150 to my actual ID (441234567)
-- Compiled and ran the program successfully
-- Committed and pushed: `Set my student ID: 441234567`
-
-**Challenges**: Had to install JDK first because `javac` wasn't recognized
-
-**Solution**: Downloaded JDK 17 and set the PATH variable
-
-**Time spent**: 30 minutes
-
+445052316-beep/OS-Assignment1-maha-alrshoud
 ---
 
 ## Your Development Log
+Development Log
+2026-10-01
+Created my GitHub account using the university email and forked the starter repository. Renamed the repository according to the assignment instructions.
 
-### Entry 1 - [Date and Time]
-**What I did**:
+2026-10-03
+Updated SchedulerSimulation.java and added my student ID to generate unique simulation results. Tested the project to ensure it runs successfully.
 
-**Details**:
+2026-10-05
+Implemented the Process Priority feature. Added random priorities from 1 to 10 and displayed them when processes entered the ready queue.
 
-**Challenges**:
+2026-10-07
+Implemented the Context Switch Counter feature. Added a static counter and displayed the total number of context switches at the end of execution.
 
-**Solution**:
+2026-10-09
+Implemented Waiting Time Tracking using System.currentTimeMillis(). Calculated waiting time and turnaround time and displayed them in a final table.
 
-**Time spent**:
-
----
-
-### Entry 2 - [Date and Time]
-**What I did**:
-
-**Details**:
-
-**Challenges**:
-
-**Solution**:
-
-**Time spent**:
-
----
-
-### Entry 3 - [Date and Time]
-**What I did**:
-
-**Details**:
-
-**Challenges**:
-
-**Solution**:
-
-**Time spent**:
-
----
-
-### Entry 4 - [Date and Time]
-**What I did**:
-
-**Details**:
-
-**Challenges**:
-
-**Solution**:
-
-**Time spent**:
-
----
-
-### Entry 5 - [Date and Time]
-**What I did**:
-
-**Details**:
-
-**Challenges**:
-
-**Solution**:
-
-**Time spent**:
-
----
-
-### Entry 6 - [Optional - Date and Time]
-**What I did**:
-
-**Details**:
-
-**Challenges**:
-
-**Solution**:
-
-**Time spent**:
-
----
+2026-10-10
+Reviewed the code, fixed formatting issues, tested all features, completed the documentation, and prepared the video demonstration.
 
 ## Development Log Summary
 
 > 💡 **TIP:** Fill this in **last**, after all entries are written.
 
-**Total time spent on assignment**: [X hours]
+**Total time spent on assignment**: [7-8 hours]
 
-**Most challenging part**:
+**Most challenging part**: to analyse every part of the code 
 
-**Most interesting learning**:
+**Most interesting learning**: how the code would work
 
-**What I would do differently next time**:
+**What I would do differently next time**: try to write my fully code by myself
 
 ---
 
@@ -237,7 +162,7 @@
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+[I learned that multithreading allows multiple tasks to make progress concurrently. In Java, threads can be created using the Thread class and Runnable interface. Each thread has its own lifecycle and can run independently from other threads. I also learned how methods such as start(), join(), and sleep() affect thread execution. Observing the scheduler simulation made it easier to understand how multiple processes share CPU time. This assignment gave me practical experience with thread behavior.]
 
 ## Question 2: What was the most challenging part of this assignment?
 
@@ -245,7 +170,7 @@
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+[The most challenging part of this assignment was implementing the waiting time calculations correctly. I needed to understand when a process starts waiting and when it finishes waiting in the ready queue. Since multiple processes are executed using Round Robin scheduling, tracking the timing information required careful testing. I spent time checking the output and comparing results with expected behavior. This helped me better understand scheduling algorithms and process management. Overall, the challenge improved my debugging and problem-solving skills.]
 
 ## Question 3: How did you overcome the challenges you faced?
 
@@ -253,7 +178,7 @@
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+[During this assignment, I faced several challenges while implementing the required features and understanding the existing code structure. To overcome these difficulties, I carefully read the project instructions and reviewed the provided code multiple times. I also used System.out.println() statements to trace the execution flow and verify that variables were updating correctly. After completing each small modification, I tested the program to make sure everything was working as expected before moving to the next task. When I encountered errors, I analyzed the output messages and debugged the code step by step. This approach helped me identify problems quickly and prevented new changes from breaking existing functionality. As a result, I was able to complete the assignment with a better understanding of Java multithreading and debugging techniques.]
 
 ## Question 4: How can you apply multithreading concepts in real-world applications?
 
@@ -261,7 +186,7 @@
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+[Multithreading is widely used in many real-world applications to improve performance and user experience. For example, web browsers use multiple threads to load web pages, display content, and process user input simultaneously. In mobile applications, one thread can handle the user interface while other threads perform background tasks such as downloading data. Music players use separate threads to play audio while allowing users to browse playlists and adjust settings. Video games also rely on multithreading to manage graphics rendering, physics calculations, and user interactions at the same time. Similar to the scheduler simulation in this assignment, operating systems use scheduling techniques to distribute CPU time among multiple running tasks. Understanding multithreading helps developers create faster, more responsive, and efficient software applications.]
 
 ### Optional: What would you like to learn more about?
 
@@ -293,7 +218,7 @@
 
 **Your Answer:** *(3-5 sentences)*
 
-[Write your answer here.]
+[A process is an independent program with its own memory space and resources. A thread is a smaller execution unit that runs inside a process and shares the process resources with other threads. Threads are generally faster to create and manage than processes. In this assignment, the simulated processes were represented using Java threads.]
 
 ## Question 2: Ready Queue Behavior
 
@@ -304,8 +229,7 @@
 > 💡 **TIP:** Pick a process with a large burst time (e.g., more than 2 × time quantum) and count how many "added to ready queue" lines it has after the first one. Search your console for its name (e.g., `P3`).
 
 **Your Answer:** *(3-5 sentences)*
-
-[Write your answer here.]
+[The ready queue in this assignment follows a FIFO order. New processes are added to the end of the queue and wait for their turn to receive CPU time. Although I added a priority value for each process, the queue order was not changed. The scheduler continued to execute processes using Round Robin scheduling.]
 
 Example from my output:
 ```
@@ -323,15 +247,15 @@ Example from my output:
 
 **Your Answer:** *(3-5 sentences overall; one short explanation per state)*
 
-1. **New**: [When is P1 in the New state?]
+1. New: P1 is in the New state when the Process object is created inside the program but before the thread is started. At this point, memory is allocated for the thread, but it has not begun execution yet.
 
-2. **Runnable**: [When does P1 become Runnable?]
+2. Runnable: P1 becomes Runnable when Thread.start() is called by the scheduler. The thread is then ready to run and waits for the CPU scheduler to assign processor time.
 
-3. **Running**: [When is P1 Running?]
+3. Running: P1 enters the Running state when the CPU selects it for execution and its run() method starts executing. During this state, the process performs its assigned work for the current time quantum.
 
-4. **Waiting**: [When and why would a thread be Waiting?]
+4. Waiting: P1 temporarily enters a waiting state when Thread.sleep() is executed inside the thread. During this time, the thread pauses execution for a specified duration before becoming runnable again. The main thread may also wait for P1 to finish using Thread.join().
 
-5. **Terminated**: [When is P1 Terminated?]
+5. Terminated: P1 reaches the Terminated state after completing its remaining burst time and the run() method finishes execution. At this point, the thread has completed all its work and cannot be restarted.
 
 ## Question 4: Real-World Applications
 
@@ -339,34 +263,36 @@ Example from my output:
 
 > 💡 **TIP:** Relate each example back to your simulation: what plays the role of the "process", the "time quantum" and the "context switch" in that scenario?
 
-**Your Answer:** *(3-5 sentences per example)*
+Example 1 (operating-system level): Operating System CPU Scheduling
 
-### Example 1 (operating-system level): [Name of scenario]
+Description:
 
-**Description**:
-[Describe the real-world scenario.]
+Modern operating systems often have many programs running at the same time, such as web browsers, text editors, and background services. The operating system scheduler must distribute CPU time among these processes so that all of them can make progress.
 
-**Why Round-Robin works well here**:
-[Fairness, responsiveness, predictability?]
+Why Round-Robin works well here:
 
-### Example 2: [Name of application/scenario]
+Round-Robin scheduling gives each process a fixed time quantum before switching to the next process. This ensures fairness because no process can monopolize the CPU. The frequent context switches also improve responsiveness, allowing users to interact with multiple applications smoothly. This is similar to my scheduler simulation where each process receives CPU time and is re-queued if it has remaining work.
 
-**Description**:
-[Describe the real-world scenario or application.]
+Example 2: Web Browser Tabs
 
-**Why Round-Robin works well here**:
-[Fairness, responsiveness, predictability?]
+Description:
 
-## Summary
+A web browser may have several tabs open simultaneously, each loading content, executing scripts, or handling user interactions. Multiple threads are used to keep the browser responsive while performing these background tasks.
 
-**Key concepts I understood through these questions:**
-1.
-2.
-3.
+Why Round-Robin works well here:
 
-**Concepts I need to study more:**
-1.
-2.
+Round-Robin scheduling allows each tab or task to receive regular CPU time. This prevents a single tab from consuming all system resources and affecting the performance of other tabs. The scheduling remains predictable and responsive for the user. Similar behavior was demonstrated in my assignment where each process shared CPU time fairly through repeated scheduling cycles.
+
+Key concepts I understood through these questions:
+
+The behavior of Round-Robin scheduling and process re-queuing.
+The lifecycle of a thread from creation to termination.
+The importance of fairness and CPU sharing in multithreaded systems.
+
+Concepts I need to study more:
+
+Advanced thread synchronization techniques.
+Different CPU scheduling algorithms and their performance trade-offs.
 
 ---
 
