@@ -31,14 +31,20 @@ class Process implements Runnable {
     private int remainingTime; // Time left for the process to finish its execution
     private int priority;
     public static int contextSwitchCount = 0; 
+     private long arrivalTime;   
+    private long startTime;     
+    private long completionTime;
+    private long waitingTime;
+
     
     // Constructor to initialize the process with name, burst time, and time quantum
-    public Process(String name, int burstTime, int timeQuantum) {
+     public Process(String name, int burstTime, int timeQuantum, int priority, long arrivalTime) {
         this.name = name;
         this.burstTime = burstTime;
         this.timeQuantum = timeQuantum;
-        this.remainingTime = burstTime; // Initially, remaining time is equal to the burst time
-        this.priority;
+        this.remainingTime = burstTime;
+        this.priority = priority;
+        this.arrivalTime = arrivalTime;
     }
 
     // This method will be called when the thread for this process is started
@@ -150,6 +156,28 @@ class Process implements Runnable {
         return priority;
     }
 
+         public long getArrivalTime() { 
+             return arrivalTime; 
+         }
+    public long getStartTime() { 
+        return startTime;
+    }
+    public void setStartTime(long startTime) { 
+        this.startTime = startTime;
+    }
+    public long getCompletionTime() {
+        return completionTime;
+    }
+    public void setCompletionTime(long completionTime) {
+        this.completionTime = completionTime;
+    }
+    public long getWaitingTime() { 
+        return waitingTime; 
+    }
+    public void setWaitingTime(long waitingTime) { 
+        this.waitingTime = waitingTime;
+    }
+
 }
 
 public class SchedulerSimulation {
@@ -212,7 +240,7 @@ public class SchedulerSimulation {
             int priority = 1 + random.nextInt(10);
             
             // Create a new process object with a unique name, burst time, and the defined time quantum
-            Process process = new Process("P" + i, burstTime, timeQuantum , priority);
+           Process process = new Process("P" + i, burstTime, timeQuantum, priority, System.currentTimeMillis());
             
             // Add the process to the ready queue and the map
             addProcessToQueue(process, processQueue, processMap);
@@ -252,11 +280,15 @@ public class SchedulerSimulation {
             System.out.println(Colors.BOLD + Colors.MAGENTA + "└" + "─".repeat(79) + Colors.RESET + "\n");
             
             // Start the thread, which will run the process for one time quantum
-            currentThread.start();
+            process.setStartTime(System.currentTimeMillis()); // تسجيل وقت بدء التنفيذ
+currentThread.start();
             
             try {
                 // Wait for the thread to finish its time quantum before continuing to the next process
-                currentThread.join();
+                
+                process.setCompletionTime(System.currentTimeMillis());
+                process.setWaitingTime(process.getStartTime() - process.getArrivalTime()); 
+                
             } catch (InterruptedException e) {
                 System.out.println("Main thread interrupted.");
             }
@@ -313,3 +345,23 @@ public class SchedulerSimulation {
                           Colors.RESET + " | Priority: " + Colors.MAGENTA + process.getPriority() +Colors.RESET);
     }
 }
+System.out.println(Colors.BOLD + Colors.CYAN + "┌─────────────────────────────────────────────────────────────────────────┐" + Colors.RESET);
+System.out.println(Colors.BOLD + Colors.CYAN + "│" + Colors.BG_BLUE + Colors.WHITE + "                         FINAL STATISTICS TABLE                          " + Colors.RESET + Colors.BOLD + Colors.CYAN + "│" + Colors.RESET);
+System.out.println(Colors.BOLD + Colors.CYAN + "├──────────────┬──────────────┬──────────────┬──────────────────────────────┤" + Colors.RESET);
+System.out.println(Colors.BOLD + Colors.CYAN + "│ Process Name │ Burst Time   │ Waiting Time │ Turnaround Time (Wait+Burst) │" + Colors.RESET);
+System.out.println(Colors.BOLD + Colors.CYAN + "├──────────────┼──────────────┼──────────────┼──────────────────────────────┤" + Colors.RESET);
+
+// نحتاج للوصول للعمليات مرة أخرى. سنستخدم processMap.values()
+for (Process p : processMap.values()) {
+    long turnaroundTime = p.getWaitingTime() + p.getBurstTime();
+    System.out.printf(Colors.CYAN + "│ " + Colors.RESET + "%-12s " + 
+                      Colors.CYAN + "│ " + Colors.RESET + "%-12s " + 
+                      Colors.CYAN + "│ " + Colors.RESET + "%-12s " + 
+                      Colors.CYAN + "│ " + Colors.RESET + "%-28s " + 
+                      Colors.CYAN + "│" + Colors.RESET + "\n", 
+                      p.getName(), 
+                      p.getBurstTime() + "ms", 
+                      p.getWaitingTime() + "ms", 
+                      turnaroundTime + "ms");
+}
+System.out.println(Colors.BOLD + Colors.CYAN + "└──────────────┴──────────────┴──────────────┴──────────────────────────────┘" + Colors.RESET + "\n");
